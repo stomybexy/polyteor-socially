@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polyteor-element/polyteor-collection.html">
+<dom-module id="parties-list">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            button{
+                background: blue;
+            }
+
+        </style>
+         <polyteor-collection collection="parties" data="{{parties}}" autoupdate></polyteor-collection>
+        <div>
+            <ul>
+                <template is="dom-repeat" items="[[parties]]" as="party">
+                    <li>
+                        {{party.name}}
+                        <p>{{party.description}}</p>
+                        <p></p></ip>{{party.location}}</p>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </template>
+
+    <script>
+        (function () {
+                'use strict';
+
+                Polymer({
+                        is: 'parties-list',
+
+                        properties: {
+                            parties: Array
+                    },
+                    ready: function(){
+                      let x = 2;
+                      setTimeout(()=>{
+                        console.log('Parties ready!');
+                      }, 10)
+                    }
+                });
+        })();
+    </script>
+</dom-module>
